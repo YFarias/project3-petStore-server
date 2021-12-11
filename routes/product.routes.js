@@ -92,7 +92,7 @@ router.delete('/api/products/:productId', async (req, res, next) => {
 
     await Product.findByIdAndDelete(productId);
 
-    res.status(204).send();  // No Content
+    res.status(204).send();// No Content
   } catch (error) {
     res.status(500).json(error);
   }
