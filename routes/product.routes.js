@@ -9,10 +9,10 @@ const { isAuthenticated } = require("./../middleware/jwt.middleware");
 router.post('/api/products',  async (req, res, next) => {
     try {
       // Get the data from the request body
-      const { title, price, quantity, image, role, category } = req.body;
+      const { title, price, description, image, role, category } = req.body;
   
       // Save the data in the db
-      const createdProduct = await Product.create({ title, price, quantity, image, role, category});
+      const createdProduct = await Product.create({ title, price, description, image, role, category});
   
       res.status(201).json(createdProduct);  // 201 Created
   
@@ -67,11 +67,11 @@ router.put('/api/products/:productId', async (req, res, next) => {
     }    
 
     // Values to use for updating the project
-    const { title, image, price, quantity, role, category} = req.body;
+    const { title, image, price, description, role, category} = req.body;
 
     const updatedProduct = await Product.findByIdAndUpdate(
       productId,
-      { title, image, price, quantity, role, category }, 
+      { title, image, price, description, role, category }, 
       { new: true });
     
     res.status(200).json(updatedProduct);

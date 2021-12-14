@@ -9,6 +9,7 @@ const userSchema = new Schema({
   addCart:[ {type: Schema.Types.ObjectId,  ref: 'Product'} ],
   myHistory:[{type: Schema.Types.ObjectId,  ref: 'Product'}],
   role: { type: String, enum: ["admin", "user"], default: "user" },
+  cart:{ type: String, default:"../image/shopping-cart.png" },
 
   });
 

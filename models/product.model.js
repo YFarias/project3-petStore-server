@@ -6,7 +6,8 @@ const productSchema = new Schema({
   price: { type: Number, requitre: true },
   image: { type: String, default: "https://i.imgur.com/yWHfhiG.png" },
   quantity: {type: Number, require:true},
-  category: {type: Number, require:true},
+  category: {type: String, require:true},
+  description: { type: String, required: true },
   role: { type: String, enum: ["dog", "cat"], default: "dog" },
 });
 
