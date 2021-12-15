@@ -4,9 +4,15 @@ const router = require("express").Router()
 const User = require("../models/user.model")
 const { isAuthenticated } = require("./../middleware/jwt.middleware");
 
+const fileUploader = require('../config/cloudinary.config');
+
+
+
+
+
 
 // POST /api/products - Create a new product - (ADMIN)
-router.post('/api/products',  async (req, res, next) => {
+router.post('/api/products', async (req, res, next) => {
     try {
       // Get the data from the request body
       const { title, price, description, image, role, category } = req.body;
