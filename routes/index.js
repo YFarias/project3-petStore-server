@@ -4,7 +4,8 @@ const router = require("express").Router();
 const fileUploader = require("../config/cloudinary.config");
 
 //Post/api/upload -Used for Uploading an image
-router.post("/api/upload", fileUploader.single("imageURL"), (req,res,next) =>{
+router.post("/api/upload", 
+fileUploader.single("image"), (req,res,next) =>{
 
   if(!req.file) {
     next(new Error("No file uploaded!"));
